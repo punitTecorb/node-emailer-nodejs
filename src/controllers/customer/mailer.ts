@@ -5,9 +5,6 @@ function senaMailByMailer(data:any):Promise<any> {
     return new Promise(async (resolve, reject) => {
         try {
             var smtpTransport = nodemailer.createTransport({
-                // host: "ssl0.ovh.net",
-                // port: 465,
-                //service: 'Godaddy',
                 host: "smtpout.secureserver.net",
                 secureConnection: true,
                 port: 465,
