@@ -4,6 +4,7 @@ import nodemailer from 'nodemailer';
 function senaMailByMailer(data:any):Promise<any> {
     return new Promise(async (resolve, reject) => {
         try {
+            // Create Transport method
             var smtpTransport = nodemailer.createTransport({
                 host: "smtpout.secureserver.net",
                 secureConnection: true,
@@ -15,12 +16,15 @@ function senaMailByMailer(data:any):Promise<any> {
                 tls: { rejectUnauthorized: false }
             });
             
+            // Options
             var mailOptions = {
                 to: 'Email Id',//Receiver mail Id
                 from: 'Email Id',// Send mail Id
                 subject: 'Your mail subject',
                 html: ''
             };
+
+            // Call send mail method
             smtpTransport.sendMail(mailOptions, function(err:any) {
                 if (err) {
                     console.log(err);
